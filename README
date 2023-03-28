@@ -1,0 +1,66 @@
+
+Upload Tools
+============
+
+Author: Steve Leung
+
+Theory of operation
+===================
+
+This tool is intended to manually upload files to AWS S3 bucket.
+
+If your regular tools are working, use them, and do not use this one.
+
+The usage is simple but complicated if you are not an experienced Linux command line user.
+
+The tool is flexible.
+
+Here are the recommended workflow (steps):
+
+You save a list of files which you want to upload in a file
+
+You can edit the file to customize what you really want.
+
+Each line represent the path of a file
+
+If you want to skip a file, add a prefix of # to the line, this will make the line a comment
+
+If you append a second column to the line, the column acts as the target path; otherwise target path is the same as the source path
+
+The file is the input to the upload tool.
+
+The tool reads each line and upload to the AWS S3 bucket.
+
+The practice
+============
+
+If you like, you can use the tool filter_files.sh to help you get started. For example,
+
+$sh filter_files.sh /usr/lib out1
+
+The above command will list all the files under "/usr/lib" to the file "out1", one line per file.
+
+You can then use your favor tools to modify the file and make it more useful for your situation.
+
+The file will become the input file to the next tool. You might use other tools to creat the input file; therefore using "filter_files.sh" is not mandatory.
+
+The next tool is "upload.py" which does the real work of uploading the files listed in the input file. Here is a typical usage.
+
+$python upload.sh steveleung-testing <out
+
+In the above example, "steveleung-testing" is the AWS S3 bucket name. Before you run the Python tool, you should set up the AWS CLI environment properly. Without the correct information on the AWS environment, the tool would not work correctly.
+
+Assuming we are going to upload large number of files, and it could take days, we want to bullet-proof the environment such that we have less chance to lose our work. I recommend the following
+
+$ nohup python upload.sh steveleung-testing <out >my_run 2>&1 &
+
+The above command runs in background, and can survive terminal exit. Monitor the file "my_run" to make sure it is running fine. You should exmine the file periodically to make sure the run is still in good health.
+
+TODO
+====
+Add unit testing framework.
+
+For now manual test with unittest.sh
+
+
+

@@ -1,0 +1,16 @@
+#
+# Unit test - this tests presence of bucket and exit directives
+# Author: Steve leung
+#
+#!bucket=steveleung-testing 
+/usr/lib/grub/i386-pc/gcry_rmd160.mod
+/usr/lib/grub/i386-pc/acpi.mod
+/usr/lib/grub/i386-pc/gcry_rsa.mod
+/usr/lib/grub/i386-pc/adler32.mod
+/usr/lib/grub/i386-pc/gcry_seed.mod
+#!exit
+/usr/lib/grub/i386-pc/affs.mod
+/usr/lib/grub/i386-pc/gcry_serpent.mod
+/usr/lib/grub/i386-pc/afs.mod
+/usr/lib/grub/i386-pc/gcry_sha1.mod
+/usr/lib/grub/i386-pc/ahci.mod

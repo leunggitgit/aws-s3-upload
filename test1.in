@@ -1,0 +1,12 @@
+# 
+# Unit test - this tests comments, empty lines, and absence of bucket directive
+#
+# Author: Steve Leung
+#
+
+
+/usr/lib/grub/i386-pc/gcry_rmd160.mod
+/usr/lib/grub/i386-pc/acpi.mod
+/usr/lib/grub/i386-pc/gcry_rsa.mod
+/usr/lib/grub/i386-pc/adler32.mod
+/usr/lib/grub/i386-pc/gcry_seed.mod
